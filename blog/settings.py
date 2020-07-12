@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k*b$$!%hiswnhp2pad)6(u4x_g)r5w%@&zlv&@2hrz4#f3+#57'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -166,9 +166,9 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
 }
 
-MAILCHIMP_API_KEY = ''
-MAILCHIMP_DATA_CENTER = ''
-MAILCHIMP_EMAIL_LIST_ID = ''
+MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
+MAILCHIMP_DATA_CENTER = 'us20'
+MAILCHIMP_EMAIL_LIST_ID = 'c422fd896e'
 
 # Django Allauth
 
