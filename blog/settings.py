@@ -137,6 +137,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD= os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+
 # Tinymce
 
 TINYMCE_DEFAULT_CONFIG = {
