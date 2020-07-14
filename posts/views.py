@@ -146,6 +146,7 @@ class PostDetailView(DetailView):
 
     def get_object(self):
         obj = super().get_object()
+        print("Post object: ", obj)
         if self.request.user.is_authenticated:
             PostView.objects.get_or_create(
                 user=self.request.user,
@@ -212,6 +213,7 @@ class PostCreateView(CreateView):
         return context
 
     def form_valid(self, form):
+        print(self.request.user)
         form.instance.author = get_author(self.request.user)
         form.save()
         return redirect(reverse("post-detail", kwargs={
@@ -223,6 +225,7 @@ def post_create(request):
     title = 'Create'
     form = PostForm(request.POST or None, request.FILES or None)
     author = get_author(request.user)
+    print("AUTHOR: ", author)
     if request.method == "POST":
         if form.is_valid():
             form.instance.author = author
