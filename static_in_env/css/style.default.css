@@ -641,6 +641,10 @@ section.hero h1 {
   line-height: 1.2em;
 }
 
+#heroh1 {
+  color: #000;
+}
+
 section.hero .continue {
   position: absolute;
   bottom: 30px;
