@@ -24,8 +24,7 @@ def contact(request):
             'WebsiteNearMe ' + message_name,  # subject
             message,  # message
             message_email,  # from email
-            ['jlavery828@gmail.com', 'openfinanceconsult@gmail.com',
-                'sreeharivknair96@gmail.com'],  # to email
+            ['openfinanceconsult@gmail.com'],  # to email
         )
 
         context = {
