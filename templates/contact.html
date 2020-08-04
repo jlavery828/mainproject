@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <!-- Latest Posts -->
+    <main class="posts-listing col-lg-8">
+      <div class="container">
+        <div class="row">
+          <h1>Contact Us</h1>
+          <!-- contact -->
+          <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6 form-group">
+                <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
+              </div>
+              <div class="col-lg-6 form-group">
+                <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
+              </div>
+              <div class="col-12 form-group">
+                <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    {% include 'sidebar.html' with most_recent=most_recent category_count=category_count %}
+  </div>
+</div>
+
+{% endblock content %}

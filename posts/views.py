@@ -1,5 +1,6 @@
 from django.db.models import Count, Q
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -10,6 +11,32 @@ from marketing.forms import EmailSignupForm
 from marketing.models import Signup
 
 form = EmailSignupForm()
+
+
+def contact(request):
+    if request.method == "POST":
+        message_name = request.POST['message-name']
+        message_email = request.POST['message-email']
+        message = request.POST['message']
+
+        # send an email
+        send_mail(
+            'WebsiteNearMe ' + message_name,  # subject
+            message,  # message
+            message_email,  # from email
+            ['jlavery828@gmail.com', 'openfinanceconsult@gmail.com',
+                'sreeharivknair96@gmail.com'],  # to email
+        )
+
+        context = {
+            'message_name': message_name,
+            'message_email': message_email,
+            'message': message,
+        }
+        return render(request, 'contact.html', context)
+    else:
+        context = {}
+        return render(request, 'contact.html', context)
 
 
 def get_author(user):

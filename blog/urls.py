@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from posts.views import (
+    contact,
     index,
     search,
     post_list,
@@ -22,19 +23,14 @@ from marketing.views import email_list_signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', index),
     path('', IndexView.as_view(), name='home'),
-    # path('blog/', post_list, name='post-list'),
     path('blog/', PostListView.as_view(), name='post-list'),
     path('search/', search, name='search'),
     path('email-signup/', email_list_signup, name='email-list-signup'),
-    # path('create/', post_create, name='post-create'),
+    path('contact/', contact, name='contact'),
     path('create/', PostCreateView.as_view(), name='post-create'),
-    # path('post/<id>/', post_detail, name='post-detail'),
     path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
-    # path('post/<id>/update/', post_update, name='post-update'),
     path('post/<pk>/update/', PostUpdateView.as_view(), name='post-update'),
-    # path('post/<id>/delete/', post_delete, name='post-delete'),
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls'))
