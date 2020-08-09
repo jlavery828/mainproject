@@ -13,7 +13,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '165.227.217.246']
+ALLOWED_HOSTS = ['127.0.0.1', '104.131.12.98']
 
 
 # Application definition
