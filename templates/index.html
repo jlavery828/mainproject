@@ -10,7 +10,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7" style="background-color: rgba(0,0,0,0.3); padding-bottom: 3px;">
-        <h1>Take your Online Presence to the Moon</h1><a href="#" class="hero-link">Discover More</a>
+        <h1 class="text-4xl font-bold">Take your Online Presence to the Moon</h1><a href="#" class="hero-link">Discover
+          More</a>
       </div>
     </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a>
   </div>
@@ -20,7 +21,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <h2 class="h3">You need a strategy online</h2>
+        <h3 class="h3">You need a strategy online</h3>
         <p class="text-big">We will <strong>develop your online presence</strong> and <strong>marketing
             strategy</strong>. Your website should be much more than just an online brochure.
           We will help you to use the internet as a tool to generate more <strong>MONEY!</strong></p>
@@ -32,7 +33,7 @@
   <div class="container">
     <!-- Post-->
     {% for obj in object_list %}
-    <div class="row d-flex align-items-stretch">
+    <div class="row d-flex align-items-stretch border-blue-500">
       {% if not forloop.first and not forloop.last %}
       <div class="image col-lg-5"><img src="{{ obj.thumbnail.url }}" alt="..."></div>
       {% endif %}
@@ -75,7 +76,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h2>We will set you up with an easy to use website that is integrated with Google Analytics and Google Ads.</h2>
+        <h2 class="text-4xl font-bold">We will set you up with an easy to use website that is integrated with Google
+          Analytics and Google Ads.</h2>
         <a href="#" class="hero-link">View More</a>
       </div>
     </div>
@@ -85,7 +87,7 @@
 <section class="latest-posts">
   <div class="container">
     <header>
-      <h2>Latest from the blog</h2>
+      <h3 class="h3">Latest from the blog</h3>
       <p class="text-big">Checkout what's going on around here.</p>
     </header>
     <div class="row">
