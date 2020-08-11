@@ -6,16 +6,37 @@
 <!-- Intro Section-->
 <section class="intro">
   <div class="container">
-    <h3 class="h3">Our Services</h3>
+    <h3 class="h3 text-center pb-6">Our Services</h3>
     <div class="grid grid-cols-3 gap-4">
-      <div>
-        <img class="h-48 w-auto" src="{% static 'img/services-website.jpg' %}" alt="Website Services">
+      <div class="border border-gray-400 rounded-lg shadow-md">
+        <img class="w-auto" src="{% static 'img/services-website.jpg' %}" alt="Website Services">
+        <h4 class="h4 text-center pt-2">Website Development</h4>
+        <p class="p-4">You need a website that serves as a powerful tool for your business, not another generic
+          wordpress clone. Let
+          us build a modular site for you with endless custom possibilities.</p>
+        <a href="{% url 'contact' %}"
+          class="bg-blue-500 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow m-4">
+          Contact Us
+        </a>
       </div>
-      <div>
-        <img class="h-48 w-auto" src="{% static 'img/services-google.jpg' %}" alt="Google Services">
+      <div class="border border-gray-400 rounded-lg shadow-md">
+        <img class="w-auto" src="{% static 'img/services-google.jpg' %}" alt="Google Services">
+        <h4 class="h4 text-center pt-2">Google Services</h4>
+        <p class="p-4">When it comes to reaching your demographic, Google is king. Set yourself up right with Google's
+          services so that everyone can find your site.</p>
+        <a href="{% url 'contact' %}"
+          class="bg-blue-500 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow m-4">
+          Contact Us
+        </a>
       </div>
-      <div>
-        <img class="h-48 w-auto" src="{% static 'img/services-email.jpg' %}" alt="Email Services">
+      <div class="border border-gray-400 rounded-lg shadow-md">
+        <img class="w-auto" src="{% static 'img/services-email.jpg' %}" alt="Email Services">
+        <h4 class="h4 text-center pt-2">Email Campaigns</h4>
+        <p class="p-4">Create powerful email subscriber lists to keep your customers up to date with your company.</p>
+        <a href="{% url 'contact' %}"
+          class="bg-blue-500 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow m-4">
+          Contact Us
+        </a>
       </div>
     </div>
   </div>
