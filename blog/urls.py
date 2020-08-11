@@ -12,6 +12,7 @@ from posts.views import (
     post_create,
     post_update,
     post_delete,
+    services,
     IndexView,
     PostListView,
     PostDetailView,
@@ -32,6 +33,7 @@ urlpatterns = [
     path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/<pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+    path('services/', services, name='services'),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls'))
 ]
