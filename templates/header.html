@@ -34,6 +34,8 @@
           </li>
           <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link ">Contact</a>
           </li>
+          <li class="nav-item"><a href="{% url 'services' %}" class="nav-link ">Services</a>
+          </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link ">Logout</a>
             {% else %}
