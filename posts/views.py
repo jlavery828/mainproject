@@ -127,7 +127,7 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog.html'
     context_object_name = 'queryset'
-    paginate_by = 1
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         category_count = get_category_count()
