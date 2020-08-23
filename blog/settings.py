@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '104.131.12.98',
                  'www.websitenear.me', 'websitenear.me']
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'storages',
 
     'crispy_forms',
+    'ckeditor',
     'tinymce',
 
     'marketing',
@@ -55,10 +56,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'localhost:80',
-    'localhost:8000',
-    '127.0.0.1:8000',
-    'https://mainspace.sfo2.digitaloceanspaces.com/',
+    'http://localhost:80',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'https://mainspace.sfo2.digitaloceanspaces.com',
 ]
 
 ROOT_URLCONF = 'blog.urls'
