@@ -169,7 +169,7 @@ EMAIL_PORT = 587
 
 
 # Tinymce
-
+TINYMCE_JS_URL = 'https://mainspace.sfo2.digitaloceanspaces.com/blog-static/js/tinymce.js'
 TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
