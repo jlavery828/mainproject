@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 
 from posts.views import (
@@ -20,7 +21,12 @@ from posts.views import (
     PostUpdateView,
     PostDeleteView
 )
+from posts.sitemaps import PostSitemap
 from marketing.views import email_list_signup
+
+sitemaps = {
+    'posts': PostSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +40,7 @@ urlpatterns = [
     path('post/<pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('services/', services, name='services'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls'))
 ]
