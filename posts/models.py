@@ -1,8 +1,11 @@
 from tinymce import HTMLField
 from ckeditor.fields import RichTextField
 from django.db import models
+from django.db.models.signals import pre_save
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django.utils.text import slugify
+
 
 User = get_user_model()
 
@@ -50,6 +53,7 @@ class Post(models.Model):
     # comment_count = models.IntegerField(default = 0)
     # view_count = models.IntegerField(default = 0)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    slug = models.SlugField(blank=True, null=True)
     thumbnail = models.ImageField()
     categories = models.ManyToManyField(Category)
     featured = models.BooleanField()
@@ -63,7 +67,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={
-            'pk': self.pk
+            "slug": self.slug
         })
 
     def get_update_url(self):
@@ -87,3 +91,11 @@ class Post(models.Model):
     @property
     def view_count(self):
         return PostView.objects.filter(post=self).count()
+
+
+def pre_save_post_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+
+
+pre_save.connect(pre_save_post_receiver, sender=Post)
