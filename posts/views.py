@@ -243,7 +243,7 @@ class PostCreateView(CreateView):
         form.instance.author = get_author(self.request.user)
         form.save()
         return redirect(reverse("post-detail", kwargs={
-            'pk': form.instance.pk
+            'slug': form.instance.slug
         }))
 
 
@@ -257,7 +257,7 @@ def post_create(request):
             form.instance.author = author
             form.save()
             return redirect(reverse("post-detail", kwargs={
-                'id': form.instance.id
+                'slug': form.instance.slug
             }))
     context = {
         'title': title,
@@ -280,13 +280,13 @@ class PostUpdateView(UpdateView):
         form.instance.author = get_author(self.request.user)
         form.save()
         return redirect(reverse("post-detail", kwargs={
-            'pk': form.instance.pk
+            'slug': form.instance.slug
         }))
 
 
 def post_update(request, id):
     title = 'Update'
-    post = get_object_or_404(Post, id=id)
+    post = get_object_or_404(Post, slug=slug)
     form = PostForm(
         request.POST or None,
         request.FILES or None,
@@ -297,7 +297,7 @@ def post_update(request, id):
             form.instance.author = author
             form.save()
             return redirect(reverse("post-detail", kwargs={
-                'id': form.instance.id
+                'slug': form.instance.slug
             }))
     context = {
         'title': title,
@@ -312,8 +312,8 @@ class PostDeleteView(DeleteView):
     template_name = 'post_confirm_delete.html'
 
 
-def post_delete(request, id):
-    post = get_object_or_404(Post, id=id)
+def post_delete(request, slug):
+    post = get_object_or_404(Post, slug=slug)
     post.delete()
     return redirect(reverse("post-list"))
 

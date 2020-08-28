@@ -53,7 +53,7 @@ class Post(models.Model):
     # comment_count = models.IntegerField(default = 0)
     # view_count = models.IntegerField(default = 0)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    slug = models.SlugField(blank=True, null=True)
+    slug = models.SlugField(null=False, unique=True)
     thumbnail = models.ImageField()
     categories = models.ManyToManyField(Category)
     featured = models.BooleanField()
@@ -67,12 +67,12 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={
-            'pk': self.pk
+            'slug': self.slug
         })
 
     def get_update_url(self):
         return reverse('post-update', kwargs={
-            'pk': self.pk
+            'slug': self.slug
         })
 
     def get_delete_url(self):
